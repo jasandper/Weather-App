@@ -1,0 +1,2 @@
+- Create Heading
+- Create container on left side of page with search bar and a place to store search history

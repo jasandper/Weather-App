@@ -1,0 +1,28 @@
+nav {
+    text-align: center;
+    background-color: darkolivegreen;
+    color: whitesmoke;
+    height: 90px;
+    font-size: xx-large;
+    padding: 18px;
+    font-family: 'Playfair Display', serif;
+}
+
+.fiveDay {
+    background-color: olivedrab;
+    color: whitesmoke;
+    font-family: 'Playfair Display', serif;
+    
+
+   
+}
+
+.search {
+    background-color: lightgray;
+    font-family: 'Playfair Display', serif;
+}
+
+.currentConditions {
+    
+}
+
