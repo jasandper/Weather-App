@@ -23,6 +23,15 @@
                 <h6>Search for a City:</h6>
                 <input type="text" id="city">
                 <button class="cityBtn">Submit</button>
+
+            
+
+              <div class="card searchHistory">
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Austin</li>
+                      <li class="list-group-item">Corpus Christi</li>
+                  </ul>
+              </div>
                 
 
             </div>
@@ -30,11 +39,11 @@
                 <!-- daily forecast card -->
                 <div class="card currentConditions ">
                   <div class="card-body">
-                    <h4>Austin (8/23/20)</h4>
-                    <p>Temperature:</p>
-                    <p>Humidity:</p>
-                    <p>Wind Speed:</p>
-                    <p>UV Index:</p>
+                    <h4><span class="cityName"></span><span id="date"></span><img class= "weatherIcon" src="" ></h4>
+                    <p>Temperature: <span id="temp"></span></p>
+                    <p>Humidity: <span id="humidity"></span></p>
+                    <p>Wind Speed: <span id="windSpeed"></span></p>
+                    <p>UV Index: <span id="uvi"></span></p>
                   </div>
 
                 </div>
@@ -114,6 +123,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -22,7 +22,27 @@ nav {
     font-family: 'Playfair Display', serif;
 }
 
-.currentConditions {
+.uviFavorable {
+    background-color:green;
+}
+
+.uviModerate {
+    background-color: yellow;
+
+}
+
+.uviSevere {
+    background-color: red;
+}
+
+.searchHistory {
+    width: 14rem;
+    text-align: left;
+    
     
 }
+
+
+
+
 
