@@ -9,12 +9,15 @@ nav {
 }
 
 .fiveDay {
-    background-color: olivedrab;
+    background-color: rgb(92, 167, 92);
     color: whitesmoke;
     font-family: 'Playfair Display', serif;
-    
-
+    text-size-adjust: 12px;
    
+}
+
+.currentConditions {
+    background-color: rgb(85, 114, 85);
 }
 
 .search {
@@ -23,16 +26,19 @@ nav {
 }
 
 .uviFavorable {
-    background-color:green;
+    background-color: darkolivegreen;
+    color: whitesmoke;
 }
 
 .uviModerate {
-    background-color: yellow;
+    background-color: rgb(195, 195, 97);
+    color: whitesmoke;
 
 }
 
 .uviSevere {
-    background-color: red;
+    background-color: rgb(177, 65, 65);
+    color: whitesmoke
 }
 
 .searchHistory {

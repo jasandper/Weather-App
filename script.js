@@ -1,9 +1,8 @@
 var date= " ("+(moment().format('L'))+")";
         
 $("#date").text(date);
-// console.log(date);
 
-
+//function to get data
 function getData(cityName) {
 
 
@@ -16,19 +15,12 @@ var cityLon;
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        //   console.log(response);
        
           var temp= response.main.temp + " °F";
           var humidity= response.main.humidity + " %";
           var windSpeed= response.wind.speed + " MPH";
           var icon= response.weather[0].icon;
           var city= response.name;
-          
-
-        //   console.log("The temperature is: "+temp);
-        //   console.log("The humidity is: "+humidity);
-        //   console.log("the wind speed is: "+windSpeed);
-        //   console.log("Weather icon: "+icon);
 
          $(".cityName").text(city)
          $(".weatherIcon").attr("src", "http://openweathermap.org/img/wn/"+icon+"@2x.png");
@@ -38,21 +30,14 @@ var cityLon;
          cityLat = response.coord.lat;
          cityLon = response.coord.lon;
 
-        
-
-        //  console.log("lat: "+cityLat);
-        //  console.log("lon: "+cityLon);
-        //  console.log(uviURL);
-        //  console.log("City Name is: "+city);
-
          var uviURL= "http://api.openweathermap.org/data/2.5/uvi?appid=95b7e9201f1d49a90a14127d57818b01&lat="+ cityLat+ "&lon="+ cityLon
         
          
-      $.ajax({
+    $.ajax({
         url: uviURL,
         method: "GET"
       }).then(function(response) {
-        //   console.log(response);
+
           var uvi = response.value;
           $("#uvi").text(uvi);
 
@@ -66,6 +51,38 @@ var cityLon;
 
       });
 
+      });
+
+      var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&appid=95b7e9201f1d49a90a14127d57818b01"
+
+    $.ajax({
+        url: fiveDayURL,
+        method: "GET"
+      }).then(function(response) {
+          
+        var i =1;
+        response.list.forEach(element => {
+            var date = element.dt_txt.split(" ")[0];
+            var time = element.dt_txt.split(" ")[1];
+            var icon = element.weather[0].icon;
+            var temp = element.main.temp;
+            var humidity = element.main.humidity;
+            
+        
+              if(time === "12:00:00") {
+                
+                
+                $("#day"+i+"date").text(date);
+                $("#day"+i+"icon").attr("src","http://openweathermap.org/img/wn/"+icon+"@2x.png");
+                $("#day"+i+"temp").text(temp+"°F");
+                $("#day"+i+"humidity").text(humidity+"%");
+                console.log(i);
+                i++;
+                
+                }
+                
+            });
+        
       });
 
     }
