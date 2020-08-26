@@ -113,9 +113,18 @@ var cityLon;
         var city = $(this).attr("data-city");
         // console.log("City Name: "+city);
         getData(city);
+        cityStorage();
     })
 
    
+
+
+
+    function cityStorage () {
+        var cities = [];
+        cities.push(cityName)
+        console.log(cities);
+    }
 
 
 
