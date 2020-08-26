@@ -94,18 +94,26 @@ var cityLon;
         cityName = $("#city").val();
         
         getData(cityName);
+        var btn = $("<button>");
+        btn.text(cityName);
+        btn.addClass("list-group-item city-btn");
+        btn.attr("data-city", cityName);
+        $(".searchList").prepend(btn);
 
-        $(".searchList").prepend("<button>"+cityName+"</button>")
-        $("button").addClass("list-group-item "+cityName);
+        //$(".searchList").prepend("<button>"+cityName+"</button>")
+        //$("button").addClass("list-group-item city-btn");
+
         
         localStorage.setItem(cityName, cityName);
 
     })
 
-    // $("."+cityName).on("click", function () {
-
-    //     getData(cityName);
-    // })
+    $(document).on("click",".city-btn", function (e) {
+        e.preventDefault();
+        var city = $(this).attr("data-city");
+        // console.log("City Name: "+city);
+        getData(city);
+    })
 
    
 
