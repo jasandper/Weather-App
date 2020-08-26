@@ -8,6 +8,7 @@ nav {
     font-family: 'Playfair Display', serif;
 }
 
+
 .fiveDay {
     background-color: rgb(92, 167, 92);
     color: whitesmoke;
@@ -16,12 +17,17 @@ nav {
    
 }
 
+h5{
+    font-family: 'Playfair Display', serif;
+}
+
 .currentConditions {
-    background-color: rgb(85, 114, 85);
+    background-color: rgb(91, 124, 91);
+    font-family: 'Playfair Display', serif;
 }
 
 .search {
-    background-color: lightgray;
+    background-color: rgb(106, 161, 106);
     font-family: 'Playfair Display', serif;
 }
 
@@ -46,6 +52,10 @@ nav {
     text-align: left;
     
     
+}
+
+.Austin {
+    color: hotpink;
 }
 
 
