@@ -2,8 +2,20 @@ var date= " ("+(moment().format('L'))+")";
         
 $("#date").text(date);
 
-//function to get data
-function getData(cityName) {
+buildButtonsFromLocalStorage();
+
+
+
+
+function buildButtonsFromLocalStorage () { 
+   var cities = JSON.parse(localStorage.getItem("cities")) || [];
+   cities.forEach(function (city) {
+    buildButtons(city);
+   })
+}
+
+//function to get weather data
+function getData (cityName) {
 
 
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid=95b7e9201f1d49a90a14127d57818b01"
@@ -76,7 +88,7 @@ var cityLon;
                 $("#day"+i+"icon").attr("src","http://openweathermap.org/img/wn/"+icon+"@2x.png");
                 $("#day"+i+"temp").text(temp+"°F");
                 $("#day"+i+"humidity").text(humidity+"%");
-                console.log(i);
+                // console.log(i);
                 i++;
                 
                 }
@@ -85,27 +97,17 @@ var cityLon;
         
       });
 
-    }
+}
 
-
+    
  var cityName;
     
     $(".cityBtn").on("click", function () {
         cityName = $("#city").val();
         
         getData(cityName);
-        var btn = $("<button>");
-        btn.text(cityName);
-        btn.addClass("list-group-item city-btn");
-        btn.attr("data-city", cityName);
-        $(".searchList").prepend(btn);
-
-        //$(".searchList").prepend("<button>"+cityName+"</button>")
-        //$("button").addClass("list-group-item city-btn");
-
-        
-        localStorage.setItem(cityName, cityName);
-
+        buildButtons(cityName);
+        cityStorage(cityName);
     })
 
     $(document).on("click",".city-btn", function (e) {
@@ -113,17 +115,22 @@ var cityLon;
         var city = $(this).attr("data-city");
         // console.log("City Name: "+city);
         getData(city);
-        cityStorage();
+        
     })
 
-   
+    function cityStorage (cityName) {
+        var citiesList = JSON.parse(localStorage.getItem("cities")) || [];
+        citiesList.push(cityName);
+        localStorage.setItem("cities", JSON.stringify(citiesList));
+    
+    }
 
-
-
-    function cityStorage () {
-        var cities = [];
-        cities.push(cityName)
-        console.log(cities);
+    function buildButtons (cityName) {
+        var btn = $("<button>");
+        btn.text(cityName);
+        btn.addClass("list-group-item city-btn");
+        btn.attr("data-city", cityName);
+        $(".searchList").prepend(btn);
     }
 
 
