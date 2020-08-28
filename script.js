@@ -35,14 +35,14 @@ var cityLon;
           var city= response.name;
 
          $(".cityName").text(city)
-         $(".weatherIcon").attr("src", "http://openweathermap.org/img/wn/"+icon+"@2x.png");
+         $(".weatherIcon").attr("src", "https://openweathermap.org/img/wn/"+icon+"@2x.png");
          $("#temp").text(temp);
          $("#humidity").text(humidity);
          $("#windSpeed").text(windSpeed);
          cityLat = response.coord.lat;
          cityLon = response.coord.lon;
 
-         var uviURL= "http://api.openweathermap.org/data/2.5/uvi?appid=95b7e9201f1d49a90a14127d57818b01&lat="+ cityLat+ "&lon="+ cityLon
+         var uviURL= "https://api.openweathermap.org/data/2.5/uvi?appid=95b7e9201f1d49a90a14127d57818b01&lat="+ cityLat+ "&lon="+ cityLon
         
          
     $.ajax({
@@ -65,7 +65,7 @@ var cityLon;
 
       });
 
-      var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&appid=95b7e9201f1d49a90a14127d57818b01"
+      var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&appid=95b7e9201f1d49a90a14127d57818b01"
 
     $.ajax({
         url: fiveDayURL,
@@ -85,7 +85,7 @@ var cityLon;
                 
                 
                 $("#day"+i+"date").text(date);
-                $("#day"+i+"icon").attr("src","http://openweathermap.org/img/wn/"+icon+"@2x.png");
+                $("#day"+i+"icon").attr("src","https://openweathermap.org/img/wn/"+icon+"@2x.png");
                 $("#day"+i+"temp").text(temp+"°F");
                 $("#day"+i+"humidity").text(humidity+"%");
                 // console.log(i);
